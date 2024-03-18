@@ -183,4 +183,5 @@ sequenceDiagram
 
 위의 내용을 토대로 전체적인 프로젝트 아키텍처는 다음과 같다.
 
-![호텔 예약 서비스 아키텍처](https://github.com/ash991213/hotel_reservation/assets/99451647/2251641a-ba5d-461a-9393-c96a4f785635)
+![호텔 예약 서비스 아키텍처 drawio (1)](https://github.com/ash991213/hotel_reservation/assets/99451647/083893d7-297a-49b7-a634-ff95fae7afc4)
+
