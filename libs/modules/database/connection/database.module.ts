@@ -1,13 +1,13 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { EnvConfigModule } from 'libs/modules/global/config/config.module';
+import { EnvConfigModule } from '@libs/modules/global/config/config.module';
 
-import { IDataBaseService } from 'libs/modules/database/adapter';
-import { IEnvConfigService } from 'libs/modules/global/config/adapter';
+import { IDataBaseService } from '@libs/modules/database/adapter';
+import { IEnvConfigService } from '@libs/modules/global/config/adapter';
 
-import { DataBaseService } from 'libs/modules/database/service';
+import { DataBaseService } from '@libs/modules/database/service';
 
-import { ConnectionName } from 'libs/modules/database/enum';
+import { ConnectionName } from '@libs/modules/database/enum';
 
 @Module({
     imports: [

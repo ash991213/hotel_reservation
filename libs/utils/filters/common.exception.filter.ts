@@ -1,10 +1,10 @@
 import { ArgumentsHost, BadRequestException, BadGatewayException, Catch, ExceptionFilter, ForbiddenException, HttpException, Logger, NotFoundException, GatewayTimeoutException, HttpStatus, UnauthorizedException } from '@nestjs/common';
 import { HttpAdapterHost } from '@nestjs/core';
 
-import { Res } from 'libs/utils/common/res/res.interface';
-import { ResImpl } from 'libs/utils/common/res/res.implement';
+import { Res } from '@libs/utils/common/res/res.interface';
+import { ResImpl } from '@libs/utils/common/res/res.implement';
 
-import { BAD_GATEWAY, GATEWAY_TIMEOUT, INTERNAL_SERVER_ERROR, INVALID_PARAM, NOT_HAVE_ACCESS, UNAUTHORIZED_ERROR, WRONG_APPROACH } from 'libs/utils/common/const/error.const';
+import { BAD_GATEWAY, GATEWAY_TIMEOUT, INTERNAL_SERVER_ERROR, INVALID_PARAM, NOT_HAVE_ACCESS, UNAUTHORIZED_ERROR, WRONG_APPROACH } from '@libs/utils/common/const/error.const';
 
 import * as os from 'os';
 

@@ -1,8 +1,8 @@
 import { DateTime } from 'luxon';
 
-import { Res } from 'libs/utils/common/res/res.interface';
+import { Res } from '@libs/utils/common/res/res.interface';
 
-import { DEFAULT_DATE_TIME_FORMAT } from 'libs/utils/common/const/common.const';
+import { DEFAULT_DATE_TIME_FORMAT } from '@libs/utils/common/const/common.const';
 
 export class ResImpl implements Res {
     constructor(res: Res) {

@@ -1,10 +1,11 @@
-import { SUCCESS } from 'libs/utils/common/const/error.const';
 import { Injectable } from '@nestjs/common';
 import { name, version } from 'apps/hotels/package.json';
 
-import { IHealthService } from 'apps/hotels/src/modules/health/adapter/health.adapter';
-import { ResImpl } from 'libs/utils/common/res/res.implement';
-import { ILoggerService } from 'libs/modules/global/logger/adapter';
+import { IHealthService } from '@apps/hotels/src/modules/health/adapter/health.adapter';
+import { ILoggerService } from '@libs/modules/global/logger/adapter';
+
+import { ResImpl } from '@libs/utils/common/res/res.implement';
+import { SUCCESS } from '@libs/utils/common/const/error.const';
 
 @Injectable()
 export class HealthService implements IHealthService {

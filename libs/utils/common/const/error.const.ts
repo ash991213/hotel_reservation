@@ -1,4 +1,4 @@
-import { Res } from '../res/res.interface';
+import { Res } from '@libs/utils/common/res/res.interface';
 
 // * common
 export const SUCCESS: Res = { code: 0, message: '성공' };
@@ -15,6 +15,7 @@ export const DB_CONNECTION_FAILED: Res = { code: 1001, message: '데이터베이
 export const DB_SELECT_FAILED: Res = { code: 1002, message: '데이터베이스에 데이터를 불러오는데 실패했습니다.' };
 export const DB_INSERT_FAILED: Res = { code: 1003, message: '데이터베이스에 데이터를 생성하는데 실패했습니다.' };
 export const DB_UPDATE_FAILED: Res = { code: 1004, message: '데이터베이스에 데이터를 변경하는데 실패했습니다.' };
+export const DB_DELETE_FAILED: Res = { code: 1005, message: '데이터베이스에 데이터를 제거하는데 실패했습니다.' };
 
 // * redis
 export const REDIS_CONNECTION_FAILED: Res = { code: 2001, message: '캐시 서버에 연결을 실패했습니다.' };

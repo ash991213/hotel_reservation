@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 
-import { IDataBaseService } from 'libs/modules/database/adapter';
-import { ConnectionModel } from 'libs/modules/database/types';
+import { IDataBaseService } from '@libs/modules/database/adapter';
+import { ConnectionModel } from '@libs/modules/database/types';
 
 @Injectable()
 export class DataBaseService implements IDataBaseService {

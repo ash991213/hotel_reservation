@@ -1,6 +1,6 @@
 import { RedisClientType } from 'redis';
 
-import { CacheKeyArgument, CacheKeyValue, CacheValueArgument } from 'libs/modules/cache/types';
+import { CacheKeyArgument, CacheKeyValue, CacheValueArgument } from '@libs/modules/cache/types';
 
 export abstract class ICacheService<T = RedisClientType> {
     abstract client: T;

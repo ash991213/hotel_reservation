@@ -1,7 +1,7 @@
 import { Controller, Get } from '@nestjs/common';
-import { ResImpl } from 'libs/utils/common/res/res.implement';
+import { ResImpl } from '@libs/utils/common/res/res.implement';
 
-import { IHealthService } from 'apps/hotels/src/modules/health/adapter/health.adapter';
+import { IHealthService } from '@apps/hotels/src/modules/health/adapter/health.adapter';
 
 @Controller()
 export class HealthController {

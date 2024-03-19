@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 
-import { IEnvConfigService } from 'libs/modules/global/config/adapter';
-import { EnvConfigService } from 'libs/modules/global/config/service';
+import { IEnvConfigService } from '@libs/modules/global/config/adapter';
+import { EnvConfigService } from '@libs/modules/global/config/service';
 
 @Module({
     imports: [

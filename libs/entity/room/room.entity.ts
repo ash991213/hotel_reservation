@@ -1,5 +1,5 @@
 import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, JoinColumn } from 'typeorm';
-import { Hotel } from 'libs/entity/hotel/hotel.entity';
+import { Hotel } from '@libs/entity/hotel/hotel.entity';
 
 @Entity()
 export class Room {

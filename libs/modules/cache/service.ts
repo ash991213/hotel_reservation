@@ -1,11 +1,11 @@
 import { Injectable } from '@nestjs/common';
 import { createClient, RedisClientOptions, RedisClientType } from 'redis';
 
-import { ILoggerService } from 'libs/modules/global/logger/adapter';
-import { ICacheService } from 'libs/modules/cache/adapter';
-import { CacheKeyArgument, CacheKeyValue, CacheValueArgument } from 'libs/modules/cache/types';
-import { ResException } from 'libs/utils/common/res/res.exception';
-import { REDIS_CONNECTION_FAILED, REDIS_DELETE_FAILED, REDIS_SET_EXPIRED_FAILED, REDIS_SET_FAILED } from 'libs/utils/common/const/error.const';
+import { ILoggerService } from '@libs/modules/global/logger/adapter';
+import { ICacheService } from '@libs/modules/cache/adapter';
+import { CacheKeyArgument, CacheKeyValue, CacheValueArgument } from '@libs/modules/cache/types';
+import { ResException } from '@libs/utils/common/res/res.exception';
+import { REDIS_CONNECTION_FAILED, REDIS_DELETE_FAILED, REDIS_SET_EXPIRED_FAILED, REDIS_SET_FAILED } from '@libs/utils/common/const/error.const';
 
 @Injectable()
 export class CacheService implements ICacheService {

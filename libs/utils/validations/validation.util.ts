@@ -1,9 +1,9 @@
 import { ValidationError, ValidationPipe } from '@nestjs/common';
 
-import { Res } from 'libs/utils/common/res/res.interface';
-import { ResException } from 'libs/utils/common/res/res.exception';
+import { Res } from '@libs/utils/common/res/res.interface';
+import { ResException } from '@libs/utils/common/res/res.exception';
 
-import { INVALID_PARAM } from 'libs/utils/common/const/error.const';
+import { INVALID_PARAM } from '@libs/utils/common/const/error.const';
 
 interface ValidationErrorDetails {
     parameter: string;

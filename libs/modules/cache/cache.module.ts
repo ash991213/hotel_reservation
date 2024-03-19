@@ -1,11 +1,11 @@
 import { Module } from '@nestjs/common';
 
-import { ILoggerService } from 'libs/modules/global/logger/adapter';
-import { IEnvConfigService } from 'libs/modules/global/config/adapter';
-import { ICacheService } from 'libs/modules/cache/adapter';
-import { CacheService } from 'libs/modules/cache/service';
-import { EnvConfigModule } from '../global/config/config.module';
-import { LoggerModule } from '../global/logger/logger.module';
+import { ILoggerService } from '@libs/modules/global/logger/adapter';
+import { IEnvConfigService } from '@libs/modules/global/config/adapter';
+import { ICacheService } from '@libs/modules/cache/adapter';
+import { CacheService } from '@libs/modules/cache/service';
+import { EnvConfigModule } from '@libs/modules/global/config/config.module';
+import { LoggerModule } from '@libs/modules/global/logger/logger.module';
 
 @Module({
     imports: [EnvConfigModule, LoggerModule],
