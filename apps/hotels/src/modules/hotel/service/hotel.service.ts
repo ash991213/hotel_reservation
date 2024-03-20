@@ -3,7 +3,7 @@ import { Injectable } from '@nestjs/common';
 import { IHotelService } from '@apps/hotels/src/modules/hotel/adapter/hotel.adapter';
 import { ILoggerService } from '@libs/modules/global/logger/adapter';
 
-import { HotelRepository } from '@apps/hotels/src/modules/hotel/repository/hotel.repository';
+import { HotelRepository } from '@libs/entity/hotel/hotel.repository';
 
 import { Hotel } from '@libs/entity/hotel/hotel.entity';
 import { CreateHotelDto, UpdateHotelDto } from '@apps/hotels/src/modules/hotel/dto/hotel.req.dto';
