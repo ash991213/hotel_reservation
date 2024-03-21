@@ -1,7 +1,7 @@
 import { HttpAdapterHost, NestFactory } from '@nestjs/core';
 import { VersioningType } from '@nestjs/common';
 
-import { AppModule } from '@apps/hotels/src/app.module';
+import { AppModule } from '@apps/hotels/src/modules/app.module';
 
 import { LoggingInterceptor } from '@libs/utils/interceptors/logger.interceptor';
 import { validationPipeConfig } from '@libs/utils/validations/validation.util';

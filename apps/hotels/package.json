@@ -1,7 +1,7 @@
 {
     "name": "@apps/hotels",
     "version": "0.0.1",
-    "description": "",
+    "description": "호텔 서비스",
     "main": "index.js",
     "scripts": {
         "test:module": "echo \"Error: no test specified\" && exit 1"

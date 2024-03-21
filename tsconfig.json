@@ -19,11 +19,8 @@
         "noFallthroughCasesInSwitch": false,
         "resolveJsonModule": true,
         "paths": {
-            "@app/hotels/*": ["./apps/hotels/src/*"],
-            "@libs/entity/*": ["./libs/entity/*"],
-            "@libs/core/*": ["./libs/core/*"],
-            "@libs/utils/*": ["./libs/utils/*"],
-            "@libs/modules/*": ["./libs/modules/*"]
+            "@app/*": ["./apps/*"],
+            "@libs/*": ["./libs/*"]
         }
     }
 }

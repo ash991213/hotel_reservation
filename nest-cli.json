@@ -5,7 +5,7 @@
     "compilerOptions": {
         "deleteOutDir": true,
         "webpack": true,
-        "tsConfigPath": "apps/hotels/tsconfig.app.json"
+        "tsConfigPath": "apps/hotels/tsconfig.json"
     },
     "monorepo": true,
     "root": "apps/hotels",
@@ -19,38 +19,11 @@
                 "tsConfigPath": "apps/hotels/tsconfig.app.json"
             }
         },
-        "entity": {
-            "type": "library",
-            "root": "libs/entity",
-            "entryFile": "index",
-            "sourceRoot": "libs/entity/src",
-            "compilerOptions": {
-                "tsConfigPath": "libs/entity/tsconfig.lib.json"
-            }
-        },
-        "utils": {
-            "type": "library",
-            "root": "libs/utils",
-            "entryFile": "index",
-            "sourceRoot": "libs/utils/src",
-            "compilerOptions": {
-                "tsConfigPath": "libs/utils/tsconfig.lib.json"
-            }
-        },
-        "modules": {
-            "type": "library",
-            "root": "libs/modules",
-            "entryFile": "index",
-            "sourceRoot": "libs/modules/src",
-            "compilerOptions": {
-                "tsConfigPath": "libs/modules/tsconfig.lib.json"
-            }
-        },
         "users": {
             "type": "application",
             "root": "apps/users",
             "entryFile": "main",
-            "sourceRoot": "apps/users/src",
+            "sourceRoot": "apps/users",
             "compilerOptions": {
                 "tsConfigPath": "apps/users/tsconfig.app.json"
             }
@@ -59,7 +32,7 @@
             "type": "application",
             "root": "apps/rooms",
             "entryFile": "main",
-            "sourceRoot": "apps/rooms/src",
+            "sourceRoot": "apps/rooms",
             "compilerOptions": {
                 "tsConfigPath": "apps/rooms/tsconfig.app.json"
             }
@@ -68,9 +41,34 @@
             "type": "application",
             "root": "apps/reservations",
             "entryFile": "main",
-            "sourceRoot": "apps/reservations/src",
+            "sourceRoot": "apps/reservations",
             "compilerOptions": {
                 "tsConfigPath": "apps/reservations/tsconfig.app.json"
+            }
+        },
+        "entity": {
+            "type": "library",
+            "root": "libs/entity",
+            "entryFile": "index",
+            "sourceRoot": "libs/entity",
+            "compilerOptions": {
+                "tsConfigPath": "libs/entity/tsconfig.lib.json"
+            }
+        },
+        "utils": {
+            "type": "library",
+            "root": "libs/utils",
+            "sourceRoot": "libs/utils",
+            "compilerOptions": {
+                "tsConfigPath": "libs/utils/tsconfig.lib.json"
+            }
+        },
+        "modules": {
+            "type": "library",
+            "root": "libs/modules",
+            "sourceRoot": "libs/modules",
+            "compilerOptions": {
+                "tsConfigPath": "libs/modules/tsconfig.lib.json"
             }
         }
     }
