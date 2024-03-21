@@ -1,17 +1,12 @@
 import { Injectable } from '@nestjs/common';
 
-import { ILoggerService } from '@libs/modules/global/logger/adapter';
-
 import { DataSource, Repository } from 'typeorm';
 import { Hotel } from '@libs/entity/hotel/hotel.entity';
 import { CreateHotelDto, UpdateHotelDto } from '@apps/hotels/src/modules/hotel/hotel.dto';
 
 @Injectable()
 export class HotelRepository extends Repository<Hotel> {
-    constructor(
-        private readonly logger: ILoggerService,
-        private dataSource: DataSource,
-    ) {
+    constructor(private dataSource: DataSource) {
         super(Hotel, dataSource.createEntityManager());
     }
 
