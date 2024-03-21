@@ -27,6 +27,7 @@ describe('HotelService', () => {
             createHotel: jest.fn().mockResolvedValue(defaultHotelData),
             getHotelById: jest.fn().mockResolvedValue(defaultHotelData),
             updateHotel: jest.fn().mockImplementation((hotel, dto) => ({ ...hotel, ...dto })),
+            deleteHotel: jest.fn().mockResolvedValue(true),
         };
 
         const module: TestingModule = await Test.createTestingModule({
@@ -37,7 +38,7 @@ describe('HotelService', () => {
     });
 
     describe('호텔 추가', () => {
-        it('성공적으로 호텔을 추가한다', async () => {
+        it('성공적으로 호텔을 추가한다.', async () => {
             const newHotel: CreateHotelDto = {
                 name: 'New Hotel',
                 address: 'New Address',
@@ -52,7 +53,7 @@ describe('HotelService', () => {
     });
 
     describe('호텔 조회', () => {
-        it('성공적으로 호텔 정보를 조회한다', async () => {
+        it('성공적으로 호텔 정보를 조회한다.', async () => {
             const hotel = await hotelService.getHotelById(hotelId);
 
             expect(hotelRepository.getHotelById).toHaveBeenCalledWith(hotelId);
@@ -66,25 +67,37 @@ describe('HotelService', () => {
             );
         });
 
-        it('존재하지 않는 호텔 정보 조회 시 에러를 발생시킨다', async () => {
+        it('존재하지 않는 호텔 ID로 조회 시 에러를 발생시킨다.', async () => {
             jest.spyOn(hotelRepository, 'getHotelById').mockRejectedValue(new ResImpl(HOTEL_SELECT_FAILED));
-
             await expect(hotelService.getHotelById(9999)).rejects.toEqual(new ResImpl(HOTEL_SELECT_FAILED));
         });
     });
 
     describe('호텔 업데이트', () => {
-        it('성공적으로 호텔 정보를 업데이트한다', async () => {
+        it('성공적으로 호텔 정보를 업데이트한다.', async () => {
             const updatedHotel = await hotelService.updateHotel(hotelId, updateData);
 
-            expect(hotelRepository.updateHotel).toHaveBeenCalledWith(expect.any(Object), updateData);
+            expect(hotelRepository.updateHotel).toHaveBeenCalledWith(expect.any(Hotel), updateData);
             expect(updatedHotel).toEqual(expect.objectContaining(updateData));
         });
 
-        it('존재하지 않는 호텔 정보 업데이트 시 에러를 발생시킨다', async () => {
+        it('존재하지 않는 호텔 ID로 업데이트 시 에러를 발생시킨다.', async () => {
             jest.spyOn(hotelRepository, 'getHotelById').mockRejectedValue(new ResImpl(HOTEL_SELECT_FAILED));
-
             await expect(hotelService.updateHotel(9999, updateData)).rejects.toEqual(new ResImpl(HOTEL_SELECT_FAILED));
+        });
+    });
+
+    describe('호텔 삭제', () => {
+        it('성공적으로 호텔 정보를 삭제한다.', async () => {
+            const isDeleted = await hotelService.deleteHotel(hotelId);
+
+            expect(hotelRepository.deleteHotel).toHaveBeenCalledWith(hotelId);
+            expect(isDeleted).toEqual(true);
+        });
+
+        it('존재하지 않는 호텔 ID로 삭제 시 에러를 발생시킨다.', async () => {
+            jest.spyOn(hotelRepository, 'getHotelById').mockRejectedValue(new ResImpl(HOTEL_SELECT_FAILED));
+            await expect(hotelService.deleteHotel(9999)).rejects.toEqual(new ResImpl(HOTEL_SELECT_FAILED));
         });
     });
 });

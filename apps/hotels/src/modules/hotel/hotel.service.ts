@@ -45,8 +45,13 @@ export class HotelService implements IHotelService {
 
     async deleteHotel(id: number): Promise<boolean> {
         try {
+            const toDeleteHotel = await this.hotelRepository.getHotelById(id);
+            if (!toDeleteHotel) throw new ResImpl(HOTEL_SELECT_FAILED);
             return await this.hotelRepository.deleteHotel(id);
         } catch (error) {
+            if (error instanceof ResImpl && error.code === HOTEL_SELECT_FAILED.code) {
+                throw error;
+            }
             throw new ResImpl(HOTEL_DELETE_FAILED);
         }
     }
