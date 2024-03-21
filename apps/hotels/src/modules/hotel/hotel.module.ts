@@ -1,5 +1,4 @@
 import { Module } from '@nestjs/common';
-import { LoggerModule } from '@libs/modules/global/logger/logger.module';
 
 import { IHotelService } from '@apps/hotels/src/modules/hotel/adapter/hotel.adapter';
 import { HotelController } from '@apps/hotels/src/modules/hotel/controller/hotel.controller';
@@ -8,7 +7,7 @@ import { HotelTypeormModule } from '@libs/entity/hotel/hotel.typeorm.module';
 import { DatabaseModule } from '@libs/modules/database/connection/database.module';
 
 @Module({
-    imports: [LoggerModule, DatabaseModule, HotelTypeormModule],
+    imports: [DatabaseModule, HotelTypeormModule],
     controllers: [HotelController],
     providers: [
         {

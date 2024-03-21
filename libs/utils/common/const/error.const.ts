@@ -23,3 +23,9 @@ export const DB_GET_FAILED: Res = { code: 2002, message: '캐시 서버에 데�
 export const REDIS_SET_FAILED: Res = { code: 2003, message: '캐시 서버에 데이터를 저장하는데 실패했습니다.' };
 export const REDIS_DELETE_FAILED: Res = { code: 2004, message: '캐시 서버에 데이터를 삭제하는데 실패했습니다.' };
 export const REDIS_SET_EXPIRED_FAILED: Res = { code: 2005, message: '캐시 서버에 데이터의 만료 기간을 설정하는데 실패했습니다.' };
+
+// * hotel
+export const HOTEL_SELECT_FAILED: Res = { code: 3001, message: '해당 호텔 정보를 조회하는데 실패했습니다.' };
+export const HOTEL_CREATE_FAILED: Res = { code: 3002, message: '호텔 정보를 추가하는데 실패했습니다.' };
+export const HOTEL_UPDATE_FAILED: Res = { code: 3003, message: '호텔 정보를 변경하는데 실패했습니다.' };
+export const HOTEL_DELETE_FAILED: Res = { code: 3003, message: '호텔 정보를 삭제하는데 실패했습니다.' };
