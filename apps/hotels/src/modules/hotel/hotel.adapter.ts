@@ -1,5 +1,5 @@
 import { Hotel } from '@libs/entity/hotel/hotel.entity';
-import { CreateHotelDto, UpdateHotelDto } from '@apps/hotels/src/modules/hotel/dto/hotel.req.dto';
+import { CreateHotelDto, UpdateHotelDto } from '@apps/hotels/src/modules/hotel/hotel.dto';
 
 export abstract class IHotelService {
     /**

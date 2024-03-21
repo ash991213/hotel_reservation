@@ -1,13 +1,13 @@
 import { Test, TestingModule } from '@nestjs/testing';
 
 import { Hotel } from '@libs/entity/hotel/hotel.entity';
-import { HotelService } from '@apps/hotels/src/modules/hotel/service/hotel.service';
+import { HotelService } from '@apps/hotels/src/modules/hotel/hotel.service';
 import { HotelRepository } from '@libs/entity/hotel/hotel.repository';
 
 import { ResImpl } from '@libs/utils/common/res/res.implement';
 import { HOTEL_SELECT_FAILED } from '@libs/utils/common/const/error.const';
 
-import { CreateHotelDto, UpdateHotelDto } from '@apps/hotels/src/modules/hotel/dto/hotel.req.dto';
+import { CreateHotelDto, UpdateHotelDto } from '@apps/hotels/src/modules/hotel/hotel.dto';
 
 describe('HotelService', () => {
     let hotelService: HotelService;

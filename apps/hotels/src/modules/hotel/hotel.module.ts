@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
 
-import { IHotelService } from '@apps/hotels/src/modules/hotel/adapter/hotel.adapter';
-import { HotelController } from '@apps/hotels/src/modules/hotel/controller/hotel.controller';
-import { HotelService } from '@apps/hotels/src/modules/hotel/service/hotel.service';
+import { IHotelService } from '@apps/hotels/src/modules/hotel/hotel.adapter';
+import { HotelController } from '@apps/hotels/src/modules/hotel/hotel.controller';
+import { HotelService } from '@apps/hotels/src/modules/hotel/hotel.service';
 import { HotelTypeormModule } from '@libs/entity/hotel/hotel.typeorm.module';
 import { DatabaseModule } from '@libs/modules/database/connection/database.module';
 

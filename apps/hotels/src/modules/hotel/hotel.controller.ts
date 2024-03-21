@@ -2,9 +2,9 @@ import { Controller, Get, Post, Put, Delete, Param, Body } from '@nestjs/common'
 import { ResImpl } from '@libs/utils/common/res/res.implement';
 import { SUCCESS } from '@libs/utils/common/const/error.const';
 
-import { IHotelService } from '@apps/hotels/src/modules/hotel/adapter/hotel.adapter';
+import { IHotelService } from '@apps/hotels/src/modules/hotel/hotel.adapter';
 
-import { CreateHotelDto, UpdateHotelDto } from '@apps/hotels/src/modules/hotel/dto/hotel.req.dto';
+import { CreateHotelDto, UpdateHotelDto } from '@apps/hotels/src/modules/hotel/hotel.dto';
 
 @Controller({ version: '1', path: 'api/hotels' })
 export class HotelController {

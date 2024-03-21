@@ -1,11 +1,11 @@
 import { Injectable } from '@nestjs/common';
 
-import { IHotelService } from '@apps/hotels/src/modules/hotel/adapter/hotel.adapter';
+import { IHotelService } from '@apps/hotels/src/modules/hotel/hotel.adapter';
 
 import { HotelRepository } from '@libs/entity/hotel/hotel.repository';
 
 import { Hotel } from '@libs/entity/hotel/hotel.entity';
-import { CreateHotelDto, UpdateHotelDto } from '@apps/hotels/src/modules/hotel/dto/hotel.req.dto';
+import { CreateHotelDto, UpdateHotelDto } from '@apps/hotels/src/modules/hotel/hotel.dto';
 
 import { ResImpl } from '@libs/utils/common/res/res.implement';
 import { HOTEL_SELECT_FAILED, HOTEL_CREATE_FAILED, HOTEL_UPDATE_FAILED, HOTEL_DELETE_FAILED } from '@libs/utils/common/const/error.const';
