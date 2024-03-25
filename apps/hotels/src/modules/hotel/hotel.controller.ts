@@ -10,6 +10,12 @@ import { CreateHotelDto, UpdateHotelDto } from '@apps/hotels/src/modules/hotel/h
 export class HotelController {
     constructor(private readonly hotelService: IHotelService) {}
 
+    @Get('/')
+    async getHotels(): Promise<ResImpl> {
+        const hotel = await this.hotelService.getHotels();
+        return new ResImpl({ ...SUCCESS, data: hotel });
+    }
+
     @Get('/:id')
     async getHotelById(@Param('id') id: number): Promise<ResImpl> {
         const hotel = await this.hotelService.getHotelById(id);

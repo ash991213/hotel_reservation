@@ -1,19 +1,22 @@
 import { Module } from '@nestjs/common';
 
-import { IHotelService } from '@apps/hotels/src/modules/hotel/hotel.adapter';
+import { LoggerModule } from '@libs/modules/global/logger/logger.module';
+
 import { HotelController } from '@apps/hotels/src/modules/hotel/hotel.controller';
+import { IHotelService } from '@apps/hotels/src/modules/hotel/hotel.adapter';
 import { HotelService } from '@apps/hotels/src/modules/hotel/hotel.service';
-import { HotelTypeormModule } from '@libs/entity/hotel/hotel.typeorm.module';
-import { DatabaseModule } from '@libs/modules/database/connection/database.module';
+import { HotelRepository } from '@apps/hotels/src/modules/hotel/hotel.repository';
 
 @Module({
-    imports: [DatabaseModule, HotelTypeormModule],
+    imports: [LoggerModule],
     controllers: [HotelController],
     providers: [
         {
             provide: IHotelService,
             useClass: HotelService,
         },
+        HotelRepository,
     ],
+    exports: [IHotelService],
 })
 export class HotelModule {}

@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 
 import { IHotelService } from '@apps/hotels/src/modules/hotel/hotel.adapter';
 
-import { HotelRepository } from '@libs/entity/hotel/hotel.repository';
+import { HotelRepository } from '@app/hotels/src/modules/hotel/hotel.repository';
 
 import { Hotel } from '@libs/entity/hotel/hotel.entity';
 import { CreateHotelDto, UpdateHotelDto } from '@apps/hotels/src/modules/hotel/hotel.dto';
@@ -10,9 +10,22 @@ import { CreateHotelDto, UpdateHotelDto } from '@apps/hotels/src/modules/hotel/h
 import { ResImpl } from '@libs/utils/common/res/res.implement';
 import { HOTEL_SELECT_FAILED, HOTEL_CREATE_FAILED, HOTEL_UPDATE_FAILED, HOTEL_DELETE_FAILED } from '@libs/utils/common/const/error.const';
 
+import { InjectRepository } from '@nestjs/typeorm';
+
 @Injectable()
 export class HotelService implements IHotelService {
-    constructor(private readonly hotelRepository: HotelRepository) {}
+    constructor(
+        @InjectRepository(HotelRepository)
+        private readonly hotelRepository: HotelRepository,
+    ) {}
+
+    async getHotels(): Promise<Hotel[]> {
+        try {
+            return await this.hotelRepository.getHotels();
+        } catch (error) {
+            throw new ResImpl(HOTEL_SELECT_FAILED);
+        }
+    }
 
     async getHotelById(id: number): Promise<Hotel> {
         try {
@@ -30,11 +43,11 @@ export class HotelService implements IHotelService {
         }
     }
 
-    async updateHotel(id: number, updateData: UpdateHotelDto): Promise<Hotel> {
+    async updateHotel(id: number, updateHotel: UpdateHotelDto): Promise<Hotel> {
         try {
             const previousHotel = await this.hotelRepository.getHotelById(id);
             if (!previousHotel) throw new ResImpl(HOTEL_SELECT_FAILED);
-            return await this.hotelRepository.updateHotel(previousHotel, updateData);
+            return await this.hotelRepository.updateHotel(previousHotel, updateHotel);
         } catch (error) {
             if (error instanceof ResImpl && error.code === HOTEL_SELECT_FAILED.code) {
                 throw error;

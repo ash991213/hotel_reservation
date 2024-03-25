@@ -21,7 +21,7 @@ import { ConnectionName } from '@libs/modules/database/enum';
                     password,
                     user,
                     port,
-                    entities: [__dirname + '/../**/*.entity{.ts,.js}'],
+                    entities: [__dirname + '/../../../entity/**/*.entity.{js,ts}'],
                 });
             },
             inject: [IEnvConfigService],

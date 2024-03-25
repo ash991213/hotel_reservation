@@ -14,7 +14,7 @@ export class DataBaseService implements IDataBaseService {
             username: config.user,
             password: config.password,
             database: config.dbName,
-            entities: [__dirname + '/**/*.entity{.ts,.js}'],
+            entities: config.entities,
         } as T;
     }
 }

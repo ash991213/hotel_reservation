@@ -3,7 +3,7 @@ import { Room } from '@libs/entity/room/room.entity';
 import { User } from '@libs/entity/user/user.entity';
 import { STATUS } from '@libs/utils/common/const/enum.const';
 
-@Entity()
+@Entity({ name: 'reservation' })
 export class Reservation {
     @PrimaryGeneratedColumn()
     reservation_id: number;

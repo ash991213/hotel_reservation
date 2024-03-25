@@ -2,7 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 
 import { Hotel } from '@libs/entity/hotel/hotel.entity';
 import { HotelService } from '@apps/hotels/src/modules/hotel/hotel.service';
-import { HotelRepository } from '@libs/entity/hotel/hotel.repository';
+import { HotelRepository } from '@app/hotels/src/modules/hotel/hotel.repository';
 
 import { ResImpl } from '@libs/utils/common/res/res.implement';
 import { HOTEL_SELECT_FAILED } from '@libs/utils/common/const/error.const';

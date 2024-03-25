@@ -3,6 +3,12 @@ import { CreateHotelDto, UpdateHotelDto } from '@apps/hotels/src/modules/hotel/h
 
 export abstract class IHotelService {
     /**
+     * 모든 호텔 정보를 반환합니다.
+     * @returns 호텔 객체를 담은 배열
+     */
+    abstract getHotels(): Promise<Hotel[]>;
+
+    /**
      * 호텔의 상세 정보를 반환합니다.
      * @param id 호텔 ID
      * @returns 호텔 객체

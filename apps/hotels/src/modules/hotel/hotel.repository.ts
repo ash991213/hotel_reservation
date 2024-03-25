@@ -10,6 +10,10 @@ export class HotelRepository extends Repository<Hotel> {
         super(Hotel, dataSource.createEntityManager());
     }
 
+    public async getHotels(): Promise<Hotel[]> {
+        return await this.find();
+    }
+
     public async getHotelById(id: number): Promise<Hotel> {
         return await this.findOne({
             where: {
@@ -31,10 +35,7 @@ export class HotelRepository extends Repository<Hotel> {
     }
 
     public async deleteHotel(id: number): Promise<boolean> {
-        const deleteResult = await this.delete(id);
-        if (!deleteResult.affected) {
-            throw new Error(`해당 호텔을 찾을 수 없습니다.`);
-        }
+        await this.delete(id);
         return true;
     }
 }
