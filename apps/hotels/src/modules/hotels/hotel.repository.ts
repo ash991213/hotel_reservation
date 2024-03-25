@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 
 import { DataSource, Repository } from 'typeorm';
-import { Hotel } from '@libs/entity/hotel/hotel.entity';
-import { CreateHotelDto, UpdateHotelDto } from '@apps/hotels/src/modules/hotel/hotel.dto';
+import { Hotel } from '@libs/entity/models/hotel/hotel.entity';
+import { CreateHotelDto, UpdateHotelDto } from '@apps/hotels/src/modules/hotels/hotel.dto';
 
 @Injectable()
 export class HotelRepository extends Repository<Hotel> {

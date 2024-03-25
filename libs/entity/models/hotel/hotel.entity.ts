@@ -1,5 +1,5 @@
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
-import { Room } from '@libs/entity/room/room.entity';
+import { Room } from '@libs/entity/models/room/room.entity';
 
 @Entity({ name: 'hotel' })
 export class Hotel {

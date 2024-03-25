@@ -1,6 +1,6 @@
 import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, JoinColumn } from 'typeorm';
-import { Room } from '@libs/entity/room/room.entity';
-import { User } from '@libs/entity/user/user.entity';
+import { Room } from '../room/room.entity';
+import { User } from '../user/user.entity';
 import { STATUS } from '@libs/utils/common/const/enum.const';
 
 @Entity({ name: 'reservation' })

@@ -2,10 +2,10 @@ import { Module } from '@nestjs/common';
 
 import { LoggerModule } from '@libs/modules/global/logger/logger.module';
 
-import { HotelController } from '@apps/hotels/src/modules/hotel/hotel.controller';
-import { IHotelService } from '@apps/hotels/src/modules/hotel/hotel.adapter';
-import { HotelService } from '@apps/hotels/src/modules/hotel/hotel.service';
-import { HotelRepository } from '@apps/hotels/src/modules/hotel/hotel.repository';
+import { HotelController } from '@apps/hotels/src/modules/hotels/hotel.controller';
+import { IHotelService } from '@apps/hotels/src/modules/hotels/hotel.adapter';
+import { HotelService } from '@apps/hotels/src/modules/hotels/hotel.service';
+import { HotelRepository } from '@apps/hotels/src/modules/hotels/hotel.repository';
 
 @Module({
     imports: [LoggerModule],

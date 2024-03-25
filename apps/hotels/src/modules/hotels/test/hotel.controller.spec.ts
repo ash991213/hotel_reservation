@@ -1,6 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
 
-import { Hotel } from '@libs/entity/hotel/hotel.entity';
+import { Hotel } from '@libs/entity/models/hotel/hotel.entity';
 import { HotelController } from '@apps/hotels/src/modules/hotel/hotel.controller';
 import { IHotelService } from '@apps/hotels/src/modules/hotel/hotel.adapter';
 
