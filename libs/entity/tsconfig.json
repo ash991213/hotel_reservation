@@ -4,6 +4,6 @@
         "declaration": true,
         "outDir": "../../dist/libs/entity"
     },
-    "include": ["src/**/*"],
+    "include": ["models/**/*"],
     "exclude": ["node_modules", "dist", "test", "**/*spec.ts"]
 }

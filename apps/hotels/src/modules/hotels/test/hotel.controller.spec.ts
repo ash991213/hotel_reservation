@@ -1,10 +1,10 @@
 import { Test, TestingModule } from '@nestjs/testing';
 
 import { Hotel } from '@libs/entity/models/hotel/hotel.entity';
-import { HotelController } from '@apps/hotels/src/modules/hotel/hotel.controller';
-import { IHotelService } from '@apps/hotels/src/modules/hotel/hotel.adapter';
+import { HotelController } from '@apps/hotels/src/modules/hotels/hotel.controller';
+import { IHotelService } from '@apps/hotels/src/modules/hotels/hotel.adapter';
 
-import { CreateHotelDto, UpdateHotelDto } from '@apps/hotels/src/modules/hotel/hotel.dto';
+import { CreateHotelDto, UpdateHotelDto } from '@apps/hotels/src/modules/hotels/hotel.dto';
 import { ResImpl } from '@libs/utils/common/res/res.implement';
 import { HOTEL_SELECT_FAILED, SUCCESS } from '@libs/utils/common/const/error.const';
 
