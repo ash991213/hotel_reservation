@@ -29,7 +29,7 @@ describe('HotelController', () => {
                 if (hotel_id > hotelId) throw new ResImpl(HOTEL_SELECT_FAILED);
                 return { ...defaultHotelData, ...dto };
             }),
-            deleteHotel: jest.fn().mockImplementation((hotel_id) => {
+            removeHotel: jest.fn().mockImplementation((hotel_id) => {
                 if (hotel_id > hotelId) throw new ResImpl(HOTEL_SELECT_FAILED);
                 return undefined;
             }),
@@ -93,16 +93,16 @@ describe('HotelController', () => {
 
     describe('호텔 삭제', () => {
         it('성공적으로 호텔 정보를 삭제한다.', async () => {
-            jest.spyOn(hotelService, 'deleteHotel').mockResolvedValue(undefined);
+            jest.spyOn(hotelService, 'removeHotel').mockResolvedValue(undefined);
             const result = new ResImpl({ ...SUCCESS, data: undefined });
 
-            expect(await hotelController.deleteHotel(hotelId)).toEqual(result);
-            expect(hotelService.deleteHotel).toHaveBeenCalledWith(hotelId);
+            expect(await hotelController.removeHotel(hotelId)).toEqual(result);
+            expect(hotelService.removeHotel).toHaveBeenCalledWith(hotelId);
         });
 
         it('존재하지 않는 호텔 ID로 삭제 시 에러를 발생시킨다.', async () => {
             jest.spyOn(hotelService, 'getHotelById').mockRejectedValue(new ResImpl(HOTEL_SELECT_FAILED));
-            await expect(hotelController.deleteHotel(9999)).rejects.toEqual(new ResImpl(HOTEL_SELECT_FAILED));
+            await expect(hotelController.removeHotel(9999)).rejects.toEqual(new ResImpl(HOTEL_SELECT_FAILED));
         });
     });
 });

@@ -27,7 +27,7 @@ describe('HotelService', () => {
             createHotel: jest.fn().mockResolvedValue(defaultHotelData),
             getHotelById: jest.fn().mockResolvedValue(defaultHotelData),
             updateHotel: jest.fn().mockImplementation((hotel, dto) => ({ ...hotel, ...dto })),
-            deleteHotel: jest.fn().mockResolvedValue(true),
+            removeHotel: jest.fn().mockResolvedValue(true),
         };
 
         const module: TestingModule = await Test.createTestingModule({
@@ -89,15 +89,15 @@ describe('HotelService', () => {
 
     describe('호텔 삭제', () => {
         it('성공적으로 호텔 정보를 삭제한다.', async () => {
-            const isDeleted = await hotelService.deleteHotel(hotelId);
+            const isDeleted = await hotelService.removeHotel(hotelId);
 
-            expect(hotelRepository.deleteHotel).toHaveBeenCalledWith(hotelId);
+            expect(hotelRepository.removeHotel).toHaveBeenCalledWith(hotelId);
             expect(isDeleted).toEqual(true);
         });
 
         it('존재하지 않는 호텔 ID로 삭제 시 에러를 발생시킨다.', async () => {
             jest.spyOn(hotelRepository, 'getHotelById').mockRejectedValue(new ResImpl(HOTEL_SELECT_FAILED));
-            await expect(hotelService.deleteHotel(9999)).rejects.toEqual(new ResImpl(HOTEL_SELECT_FAILED));
+            await expect(hotelService.removeHotel(9999)).rejects.toEqual(new ResImpl(HOTEL_SELECT_FAILED));
         });
     });
 });

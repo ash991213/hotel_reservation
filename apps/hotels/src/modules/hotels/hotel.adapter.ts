@@ -35,5 +35,5 @@ export abstract class IHotelService {
      * @param id 호텔 ID
      * @returns 삭제 성공 여부
      */
-    abstract deleteHotel(id: number): Promise<boolean>;
+    abstract removeHotel(id: number): Promise<boolean>;
 }

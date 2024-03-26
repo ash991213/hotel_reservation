@@ -20,7 +20,7 @@ export class HotelService implements IHotelService {
         private readonly cacheService: ICacheService,
     ) {}
 
-    async getHotels(): Promise<Hotel[]> {
+    public async getHotels(): Promise<Hotel[]> {
         try {
             return await this.hotelRepository.getHotels();
         } catch (error) {
@@ -28,7 +28,7 @@ export class HotelService implements IHotelService {
         }
     }
 
-    async getHotelById(id: number): Promise<Hotel> {
+    public async getHotelById(id: number): Promise<Hotel> {
         try {
             const cacheKey = `hotel:${id}`;
             const cachedHotel: string = await this.cacheService.get(cacheKey);
@@ -52,7 +52,7 @@ export class HotelService implements IHotelService {
         }
     }
 
-    async createHotel(createHotelDto: CreateHotelDto): Promise<Hotel> {
+    public async createHotel(createHotelDto: CreateHotelDto): Promise<Hotel> {
         try {
             return await this.hotelRepository.createHotel(createHotelDto);
         } catch (error) {
@@ -60,7 +60,7 @@ export class HotelService implements IHotelService {
         }
     }
 
-    async updateHotel(id: number, updateHotel: UpdateHotelDto): Promise<Hotel> {
+    public async updateHotel(id: number, updateHotel: UpdateHotelDto): Promise<Hotel> {
         try {
             const previousHotel = await this.hotelRepository.getHotelById(id);
             if (!previousHotel) throw new ResImpl(HOTEL_SELECT_FAILED);
@@ -73,11 +73,11 @@ export class HotelService implements IHotelService {
         }
     }
 
-    async deleteHotel(id: number): Promise<boolean> {
+    public async removeHotel(id: number): Promise<boolean> {
         try {
             const toDeleteHotel = await this.hotelRepository.getHotelById(id);
             if (!toDeleteHotel) throw new ResImpl(HOTEL_SELECT_FAILED);
-            return await this.hotelRepository.deleteHotel(id);
+            return await this.hotelRepository.removeHotel(toDeleteHotel);
         } catch (error) {
             if (error instanceof ResImpl && error.code === HOTEL_SELECT_FAILED.code) {
                 throw error;

@@ -7,6 +7,7 @@ import { HotelController } from '@apps/hotels/src/modules/hotels/hotel.controlle
 import { IHotelService } from '@apps/hotels/src/modules/hotels/hotel.adapter';
 import { HotelService } from '@apps/hotels/src/modules/hotels/hotel.service';
 import { HotelRepository } from '@apps/hotels/src/modules/hotels/hotel.repository';
+import { HotelSubscribers } from '@apps/hotels/src/modules/hotels/hotel.subscriber';
 
 @Module({
     imports: [LoggerModule, CacheModule],
@@ -17,6 +18,7 @@ import { HotelRepository } from '@apps/hotels/src/modules/hotels/hotel.repositor
             useClass: HotelService,
         },
         HotelRepository,
+        HotelSubscribers,
     ],
     exports: [IHotelService],
 })

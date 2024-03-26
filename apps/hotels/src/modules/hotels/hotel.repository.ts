@@ -34,8 +34,8 @@ export class HotelRepository extends Repository<Hotel> {
         return updatedHotel;
     }
 
-    public async deleteHotel(id: number): Promise<boolean> {
-        await this.delete(id);
+    public async removeHotel(toRemoveHotel: Hotel): Promise<boolean> {
+        await this.remove(toRemoveHotel);
         return true;
     }
 }

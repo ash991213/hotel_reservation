@@ -11,32 +11,32 @@ export class HotelController {
     constructor(private readonly hotelService: IHotelService) {}
 
     @Get('/')
-    async getHotels(): Promise<ResImpl> {
+    public async getHotels(): Promise<ResImpl> {
         const hotel = await this.hotelService.getHotels();
         return new ResImpl({ ...SUCCESS, data: hotel });
     }
 
     @Get('/:id')
-    async getHotelById(@Param('id') id: number): Promise<ResImpl> {
+    public async getHotelById(@Param('id') id: number): Promise<ResImpl> {
         const hotel = await this.hotelService.getHotelById(id);
         return new ResImpl({ ...SUCCESS, data: hotel });
     }
 
     @Post('/')
-    async createHotel(@Body() createHotelDto: CreateHotelDto): Promise<ResImpl> {
+    public async createHotel(@Body() createHotelDto: CreateHotelDto): Promise<ResImpl> {
         const hotel = await this.hotelService.createHotel(createHotelDto);
         return new ResImpl({ ...SUCCESS, data: hotel });
     }
 
     @Put('/:id')
-    async updateHotel(@Param('id') id: number, @Body() updateHotelDto: UpdateHotelDto): Promise<ResImpl> {
+    public async updateHotel(@Param('id') id: number, @Body() updateHotelDto: UpdateHotelDto): Promise<ResImpl> {
         const hotel = await this.hotelService.updateHotel(id, updateHotelDto);
         return new ResImpl({ ...SUCCESS, data: hotel });
     }
 
     @Delete('/:id')
-    async deleteHotel(@Param('id') id: number): Promise<ResImpl> {
-        await this.hotelService.deleteHotel(id);
+    public async removeHotel(@Param('id') id: number): Promise<ResImpl> {
+        await this.hotelService.removeHotel(id);
         return new ResImpl({ ...SUCCESS });
     }
 }
