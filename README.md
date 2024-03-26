@@ -32,6 +32,8 @@
 
 - 호텔 관련 API
 
+  - GET /v1/hotels - 모든 호텔의 정보 반환
+
   - GET /v1/hotels/id - 호텔의 상세 정보 반환
 
   - POST /v1/hotels - 신규 호텔 추가. 호텔 직원만 사용 가능
