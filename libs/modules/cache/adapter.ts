@@ -8,8 +8,7 @@ export abstract class ICacheService<T = RedisClientType> {
     abstract connect(): Promise<T>;
     abstract set(key: CacheKeyArgument, value: CacheValueArgument, config?: unknown): Promise<void>;
     abstract del(key: CacheKeyArgument): Promise<void>;
-    abstract get(key: CacheKeyArgument): Promise<unknown>;
-    abstract get(key: CacheKeyArgument): Promise<unknown>;
+    abstract get(key: CacheKeyArgument): Promise<string>;
     abstract setMulti(redisList: CacheKeyValue[]): Promise<void>;
     abstract pExpire(key: CacheKeyArgument, miliseconds: number): Promise<void>;
     abstract hGet(key: CacheKeyArgument, field: CacheKeyArgument): Promise<unknown | unknown[]>;

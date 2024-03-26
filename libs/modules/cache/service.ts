@@ -34,7 +34,7 @@ export class CacheService implements ICacheService {
         if (setResult !== 'OK') throw new ResException(REDIS_SET_FAILED);
     }
 
-    async get(key: CacheKeyArgument): Promise<unknown> {
+    async get(key: CacheKeyArgument): Promise<string> {
         const getResult = await this.client.get(key);
         if (!getResult) this.logger.warn(`key: ${key} not found.`, CacheService.name);
 

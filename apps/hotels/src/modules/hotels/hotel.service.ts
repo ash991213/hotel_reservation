@@ -1,7 +1,9 @@
 import { Injectable } from '@nestjs/common';
 
 import { IHotelService } from '@apps/hotels/src/modules/hotels/hotel.adapter';
+import { ICacheService } from '@libs/modules/cache/adapter';
 
+import { InjectRepository } from '@nestjs/typeorm';
 import { HotelRepository } from '@app/hotels/src/modules/hotels/hotel.repository';
 
 import { Hotel } from '@libs/entity/models/hotel/hotel.entity';
@@ -10,13 +12,12 @@ import { CreateHotelDto, UpdateHotelDto } from '@apps/hotels/src/modules/hotels/
 import { ResImpl } from '@libs/utils/common/res/res.implement';
 import { HOTEL_SELECT_FAILED, HOTEL_CREATE_FAILED, HOTEL_UPDATE_FAILED, HOTEL_DELETE_FAILED } from '@libs/utils/common/const/error.const';
 
-import { InjectRepository } from '@nestjs/typeorm';
-
 @Injectable()
 export class HotelService implements IHotelService {
     constructor(
         @InjectRepository(HotelRepository)
         private readonly hotelRepository: HotelRepository,
+        private readonly cacheService: ICacheService,
     ) {}
 
     async getHotels(): Promise<Hotel[]> {
@@ -29,7 +30,23 @@ export class HotelService implements IHotelService {
 
     async getHotelById(id: number): Promise<Hotel> {
         try {
-            return await this.hotelRepository.getHotelById(id);
+            const cacheKey = `hotel:${id}`;
+            const cachedHotel: string = await this.cacheService.get(cacheKey);
+
+            if (cachedHotel) {
+                const hotel: Hotel = JSON.parse(cachedHotel);
+
+                return hotel;
+            } else {
+                const hotel: Hotel = await this.hotelRepository.getHotelById(id);
+
+                if (!hotel) {
+                    throw new ResImpl(HOTEL_SELECT_FAILED);
+                }
+
+                await this.cacheService.set(cacheKey, JSON.stringify(hotel));
+                return hotel;
+            }
         } catch (error) {
             throw new ResImpl(HOTEL_SELECT_FAILED);
         }
